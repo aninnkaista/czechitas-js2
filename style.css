@@ -1,3 +1,38 @@
+html {
+    /*will be 10px, corresponds to the initial size of the browser*/
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
 body {
-    color: red;
+    /*will be 16px, relates to html*/
+    font-size: 1.6rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header.header-news {
+    min-height: 18rem;
+    display: flex;
+}
+
+header.header-news>div {
+    flex: 1 0 0;
+}
+
+section.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    height: 200px;
 }
