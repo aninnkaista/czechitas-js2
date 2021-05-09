@@ -1,0 +1,9 @@
+@import 'colors';
+div.news-article {
+    &>span {
+        color: white;
+    }
+    min-height:18rem;
+    background-size: cover;
+    flex: 1 0 0;
+}

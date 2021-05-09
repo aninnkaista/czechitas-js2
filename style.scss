@@ -1,0 +1,77 @@
+@import 'colors';
+html {
+    /*will be 10px, corresponds to the initial size of the browser*/
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+*,
+ ::before,
+ ::after {
+    box-sizing: inherit;
+}
+
+body {
+    /*will be 16px, relates to html*/
+    font-size: 1.6rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Ubuntu", sans-serif;
+}
+
+header.header-news {
+    &>button {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        /*-----------------------task 2---------------------------*/
+        border: none;
+        background-color: transparent;
+        color: rgba(0, 0, 0, .4);
+        cursor: pointer;
+        border-radius: 0;
+        user-select: none;
+        transition: .5s;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            background-color: rgba(255, 255, 255, .4);
+            color: $black;
+        }
+        /*------------------------task 2---------------------------*/
+        &.last {
+            right: 0;
+        }
+    }
+    &>div {
+        flex: 1 0 0;
+    }
+    &>div.header-news__container {
+        display: flex;
+    }
+    min-height: 18rem;
+    position: relative;
+}
+
+section.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    height: 200px;
+}
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
