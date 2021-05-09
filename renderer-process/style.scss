@@ -16,6 +16,7 @@ body {
     /*will be 16px, relates to html*/
     font-size: 1.6rem;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     font-family: "Ubuntu", sans-serif;
@@ -54,14 +55,6 @@ header.header-news {
     }
     min-height: 18rem;
     position: relative;
-}
-
-section.main-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    position: relative;
-    height: 200px;
 }
 
 
