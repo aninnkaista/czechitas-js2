@@ -1,10 +1,19 @@
 import { NewsArticle } from '../news-article/news-article.js';
-export class Carousel {
-    constructor(articles, itemCount) {
+//---------------- homework 4---------------------
+export class Carousel extends HTMLElement {
+    constructor() {
+            super();
             // variables defined by declaratiom
-            this.articles = articles;
-            this.itemCount = itemCount;
-
+            // inner HTML of the Carousel from index.html
+            this.innerHTML = `<header class="header-news">
+            <div class="header-news__container"></div>
+            <button id="carousel-button-left">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="last" id="carousel-button-right">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </header>`;
             // variables defined by selecting
             this.header = document.querySelector(
                 'header.header-news > div.header-news__container',
@@ -15,10 +24,10 @@ export class Carousel {
             this.itemStart = 0;
         }
         // checking buttons visibility at the borders
-    checkButtonVisibity() {
+    checkButtonVisibity(articles, itemCount) {
             if (this.itemStart === 0) {
                 this.buttonLeft.hidden = true;
-            } else if (this.itemStart >= this.articles.length - this.itemCount) {
+            } else if (this.itemStart >= articles.length - itemCount) {
                 this.buttonRight.hidden = true;
             } else {
                 this.buttonLeft.hidden = false;
@@ -26,27 +35,30 @@ export class Carousel {
             }
         }
         // populating carousel
-    populateCarousel() {
+    populateCarousel(articles, itemCount) {
             this.header.innerText = '';
             //----------------------------task 2-----------------------------------------
-            for (let i = this.itemStart; i < this.itemStart + this.itemCount; i++) {
+            for (let i = this.itemStart; i < this.itemStart + itemCount; i++) {
                 // to create an element
-                const newsValue = this.articles[i];
+                const newsValue = articles[i];
                 // add NewsArticle class
                 const curNewsArticle = new NewsArticle(newsValue);
                 this.header.appendChild(curNewsArticle);
             }
-            this.checkButtonVisibity();
+            this.checkButtonVisibity(articles, itemCount);
         }
         // adding event listeners to buttons
-    addButtonClicks() {
+    addButtonClicks(articles, itemCount) {
         this.buttonLeft.addEventListener('click', () => {
             this.itemStart--;
-            this.populateCarousel();
+            this.populateCarousel(articles, itemCount);
         });
         this.buttonRight.addEventListener('click', () => {
             this.itemStart++;
-            this.populateCarousel();
+            this.populateCarousel(articles, itemCount);
         });
     }
 }
+//-------------homeworok 4
+//to define new element for browser
+customElements.define('carousel-element', Carousel);

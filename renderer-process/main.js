@@ -1,16 +1,18 @@
+// to connect carousel element to index.html
 import { Carousel } from './components/carousel/carousel.js';
 import { Day } from './components/day/day.js';
+const CarouselLENGTH = 3;
 // data with get method from js server
 fetch('http://localhost:3000/news.json')
     .then((serverResponse) => serverResponse.text())
     .then((responseText) => {
         const data = JSON.parse(responseText);
-        // to create an instance of Carousel for news articles and 3 shown items
-        const newsCarousel = new Carousel(data.articles, 3);
+        // to select created carousel html element ----homework 4 edited
+        const newsCarousel = document.querySelector('carousel-element');
         // to populate Carousel
-        newsCarousel.populateCarousel();
+        newsCarousel.populateCarousel(data.articles, CarouselLENGTH);
         // set interactivity to buttons
-        newsCarousel.addButtonClicks();
+        newsCarousel.addButtonClicks(data.articles, CarouselLENGTH);
     });
 const main_content = document.querySelector('section.main-content');
 for (let i = 1; i <= 31; i++) {

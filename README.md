@@ -1,3 +1,3 @@
-# Homework_3
-* ### class Carousel and it's formatting is moved to folder components => carousel;
-* ### files main.js, style.scss and index.html are modified accordingly.
+# Homework_4
+* ### Carousel class inherits from HTMLelement, HTMLelement is added to customElements (modified carousel.js and index.html);
+* ### then main.js is accustomed to changes in carousel.js.
