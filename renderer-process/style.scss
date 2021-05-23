@@ -22,40 +22,14 @@ body {
     font-family: "Ubuntu", sans-serif;
 }
 
-header.header-news {
-    &>button {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        /*-----------------------task 2---------------------------*/
-        border: none;
-        background-color: transparent;
-        color: rgba(0, 0, 0, .4);
-        cursor: pointer;
-        border-radius: 0;
-        user-select: none;
-        transition: .5s;
-        &:focus {
-            outline: none;
-        }
-        &:hover {
-            background-color: rgba(255, 255, 255, .4);
-            color: $black;
-        }
-        /*------------------------task 2---------------------------*/
-        &.last {
-            right: 0;
-        }
-    }
-    &>div {
-        flex: 1 0 0;
-    }
-    &>div.header-news__container {
-        display: flex;
-    }
-    min-height: 18rem;
-    position: relative;
+section.main-content {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
 }
+
+
+/*part related to css moved to carousel.scss*/
 
 
 /*# sourceMappingURL=style.css.map */

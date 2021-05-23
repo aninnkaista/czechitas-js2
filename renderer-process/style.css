@@ -21,53 +21,13 @@ body {
   font-family: "Ubuntu", sans-serif;
 }
 
-header.header-news {
-  min-height: 18rem;
-  position: relative;
+section.main-content {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
 }
 
-header.header-news > button {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  /*-----------------------task 2---------------------------*/
-  border: none;
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  border-radius: 0;
-  user-select: none;
-  transition: 0.5s;
-  /*------------------------task 2---------------------------*/
-}
-
-header.header-news > button:focus {
-  outline: none;
-}
-
-header.header-news > button:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #232323;
-}
-
-header.header-news > button.last {
-  right: 0;
-}
-
-header.header-news > div {
-  flex: 1 0 0;
-}
-
-header.header-news > div.header-news__container {
-  display: flex;
-}
-
-/*# sourceMappingURL=style.css.map */
-/*# sourceMappingURL=style.css.map */
-/*# sourceMappingURL=style.css.map */
-/*# sourceMappingURL=style.css.map */
-/*# sourceMappingURL=style.css.map */
-/*# sourceMappingURL=style.css.map */
+/*part related to css moved to carousel.scss*/
 /*# sourceMappingURL=style.css.map */
 /*# sourceMappingURL=style.css.map */
 /*# sourceMappingURL=style.css.map */

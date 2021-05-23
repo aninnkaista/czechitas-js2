@@ -1,0 +1,42 @@
+@import 'colors';
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+/*part related to css moved from style.scss*/
+
+header.header-news {
+    &>button {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        /*-----------------------task 2---------------------------*/
+        border: none;
+        background-color: transparent;
+        color: rgba($black, .4);
+        cursor: pointer;
+        border-radius: 0;
+        user-select: none;
+        transition: .5s;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            background-color: rgba($white, .4);
+            color: $black;
+        }
+        /*------------------------task 2---------------------------*/
+        &.last {
+            right: 0;
+        }
+    }
+    &>div {
+        flex: 1 0 0;
+    }
+    &>div.header-news__container {
+        display: flex;
+    }
+    min-height: 18rem;
+    position: relative;
+}
+
+
+/*part related to css moved from style.js*/
