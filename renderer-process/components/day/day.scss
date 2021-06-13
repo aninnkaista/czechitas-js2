@@ -1,0 +1,15 @@
+    @import 'colors';
+    day-element {
+        background-color: $light-green;
+        color: $white;
+        border-radius: 1rem;
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1/1;
+        &:hover {
+            box-shadow: 0 5px 10px transparentize($color: $black, $amount: 0.8)
+        }
+        ;
+    }

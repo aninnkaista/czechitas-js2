@@ -14,8 +14,27 @@ fetch('http://localhost:3000/news.json')
         // set interactivity to buttons
         newsCarousel.addButtonClicks(data.articles, CarouselLENGTH);
     });
+
 const main_content = document.querySelector('section.main-content');
-for (let i = 1; i <= 31; i++) {
-    const newDay = new Day(i);
-    main_content.appendChild(newDay);
+
+const currentDate = new Date();
+const maxDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0,
+).getDate();
+for (let i = 1; i <= maxDate; i++) {
+    const newDate = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        i,
+    );
+    main_content.appendChild(new Day(newDate));
 }
+
+const buttonOpenModal = document.getElementById('open-modal');
+const modalContainer = document.querySelector('.modal-container');
+
+buttonOpenModal.addEventListener('click', () => {
+    modalContainer.hidden = false;
+});
