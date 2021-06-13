@@ -29,7 +29,7 @@ export class Day extends HTMLElement {
     }
 
     handleClickEvent() {
-        alert('clicked day: ' + this.getDayName());
+        window.showModal();
     }
 }
 // for browser to specify new element
