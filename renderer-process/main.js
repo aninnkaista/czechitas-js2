@@ -86,3 +86,79 @@ function showDayModal() {
 }
 
 window.showModal = showDayModal;
+
+// homework 5----------------------------------------------------------------
+
+// panel at the end of an app to ask for a key word and show time
+const watchWindow = document.getElementById('watch');
+// form to ask for the key word
+const passwordForm = document.createElement('form');
+passwordForm.innerHTML = `
+<label for="password-input">Type in secret key</label>
+<input type="password" name="password-input" id="password-input">
+<input type="button" value="Submit key" name="submit">
+<input type="button" value="Exit" name="exit">
+`;
+// string to collect keys pressed
+let checkString = '';
+
+function generateTime() {
+    /**
+     * Function will check the submitted key word and in case of correct one will show time.
+     * Time will be shown for cca 5 seconds and then the panel will dissapear together with time.
+     **/
+    if (passwordForm.elements['password-input'].value === 'heslo') {
+        console.log('correct password');
+        watchWindow.innerHTML = '';
+        let curTime = new Date();
+        //add div with time
+        const divTimer = document.createElement('div');
+        watchWindow.appendChild(divTimer);
+        // to set timeinterval for 1 sec
+        const timeInt = setInterval(() => {
+            divTimer.innerHTML = `${curTime.toLocaleTimeString()}`;
+            curTime.setSeconds(curTime.getSeconds() + 1);
+        }, 1000);
+        //after 6 seconds to stop interval
+        setTimeout(() => {
+            //reset intervl
+            clearInterval(timeInt);
+            //clear and hide window
+            watchWindow.removeChild(divTimer);
+            watchWindow.classList.add('hidden');
+        }, 6000);
+    } else {
+        const errorDiv = document.createElement('div');
+
+        errorDiv.innerHTML = `
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>Wrong key, try again!
+        `;
+        errorDiv.setAttribute('id', 'alert-message');
+        watchWindow.innerHTML = '';
+        watchWindow.appendChild(errorDiv);
+        passwordForm.elements['password-input'].value = '';
+        watchWindow.appendChild(passwordForm);
+    }
+}
+
+document.addEventListener('keydown', (KeyboardEvent) => {
+    //to collect pressed keys
+    checkString += KeyboardEvent.key;
+    //to check if pressed keys contain 'time' string
+    if (checkString.indexOf('time') !== -1) {
+        //if yes than ask for a key word
+        watchWindow.classList.remove('hidden');
+        watchWindow.appendChild(passwordForm);
+        checkString = '';
+        // when exit button is pressed then exit event listener
+        passwordForm.elements['exit'].addEventListener('click', () => {
+            watchWindow.classList.add('hidden');
+            passwordForm.elements['password-input'].value = '';
+            watchWindow.innerHTML = '';
+            return;
+        });
+        //when submit is clicked than run generateTime function
+        passwordForm.elements['submit'].addEventListener('click', generateTime);
+    }
+});
+// homework 5----------------------------------------------------------------
